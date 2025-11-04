@@ -24,8 +24,8 @@ pipeline{
 
         stage('extract data'){
             steps{
-                bat "SET TOKEN= ${env.App_Token}"
-                bat "${env.python} extractdata.py"
+                bat """ SET TOKEN =%APP_TOKEN%
+                 %PYTHON% extractdata.py """
 
                 
             }
