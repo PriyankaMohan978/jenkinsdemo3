@@ -2,7 +2,9 @@ pipeline{
     agent any
     environment{
         PYTHON='C:\\Users\\priya\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
+        APP_TOKEN= credentials("App_Token")
     }
+
 
     stages{
         stage('checkout code'){
@@ -22,6 +24,7 @@ pipeline{
 
         stage('extract data'){
             steps{
+                bat "SET TOKEN= ${env.App_Token}"
                 bat "${env.python} extractdata.py"
 
                 
