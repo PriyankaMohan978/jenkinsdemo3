@@ -15,7 +15,7 @@ pipeline{
 
         stage('Install dependencies'){
             steps{
-                bat 'pip install -r requirement.txt'
+                bat " ${env.python} -m pip install -r requirements.txt"
                 
             }
         }
